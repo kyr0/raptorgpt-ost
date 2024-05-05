@@ -13,8 +13,8 @@ export default function dcapconfig() {
     collections: [
       {
         name: "episodes",
-        label: "Episodes",
-        label_singular: "Episode",
+        label: "Songs",
+        label_singular: "Song",
         folder: "src/content/episode",
         sortable_fields: ["title", "pubDate", "episode", "season"],
         create: true,
@@ -33,7 +33,7 @@ export default function dcapconfig() {
               "Must have format hh:mm:ss or mm:ss",
             ],
           },
-          { name: "size", widget: "number", label: "Episode Size (MB)", value_type: "float" },
+          { name: "size", widget: "number", label: "Size (MB)", value_type: "float" },
           { name: "cover", widget: "image", label: "Custom Cover URL", required: false },
           { name: "explicit", widget: "boolean", label: "Explicit", required: false, default: astropodConfig.explicit },
           { name: "episode", widget: "number", label: "Episode", required: false },
