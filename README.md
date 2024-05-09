@@ -12,7 +12,7 @@ This repo is a fork of Astropod which comes with some content (RaptorGPT origina
 - play button highlighting when it plays
 - auto-UI sync of play-state
 
-![Live demo](https://raptorgpt-ost.netlify.app/)
+[Visit RaptorGPT Original AI Soundtrack page](https://raptorgpt-ost.netlify.app/)
 
 # Astropod | Free and Open Source Serverless Podcast
 

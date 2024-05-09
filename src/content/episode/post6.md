@@ -1,7 +1,7 @@
 ---
 title: RaptorGPT - Tsarlight Kakophony
 audioUrl: https://archive.org/download/tsarlight-kakophony/6_Tsarlight_Kakophony.mp3
-pubDate: May 9 2024
+pubDate: May 5 2024
 duration: 3:08
 size: 6.3
 cover: "/covers/song_3.png"

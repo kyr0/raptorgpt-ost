@@ -1,7 +1,7 @@
 ---
 title: RaptorGPT - Meteroid Speed Run
 audioUrl: https://archive.org/download/raptorgpt-meteroit-speed-run/5_Meteroit_Speed_Run.mp3
-pubDate: May 9 2024
+pubDate: May 8 2024
 duration: 3:51
 size: 8.3
 cover: "/covers/song_6.png"

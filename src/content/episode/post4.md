@@ -1,7 +1,7 @@
 ---
 title: RaptorGPT - Quantum Physics Crescendo
 audioUrl: https://archive.org/download/raptorgpt-a-space-symphony/2_A_Space_Symphony.mp3
-pubDate: May 6 2024
+pubDate: May 7 2024
 duration: 1:56
 size: 4.1
 cover: "/covers/song_2.png"
