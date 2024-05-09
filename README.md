@@ -1,3 +1,19 @@
+# RaptorGPT Original AI Soundtrack
+
+This repo is a fork of Astropod which comes with some content (RaptorGPT original soundtrack) and implements
+- autoplay
+- next song
+- prev song
+- direct song downloads
+- html description
+- episodes loop play
+- sort by episode index
+- song title display in player 
+- play button highlighting when it plays
+- auto-UI sync of play-state
+
+![Live demo](https://raptorgpt-ost.netlify.app/)
+
 # Astropod | Free and Open Source Serverless Podcast
 
 ![Atropod](https://github.com/manuelernestog/manuelernestog/assets/53962116/3106bf65-37f9-427f-9b50-72d7ae22752f)

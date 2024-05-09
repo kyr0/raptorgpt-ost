@@ -7,20 +7,27 @@ import FollowUsMenu from "./followUsMenu.astro";
 import RssIcon from "../icons/rssIcon.astro";
 import HeartIcon from "../icons/heartIcon.astro";
 
-const explicitLabel = explicit === undefined ? astropodConfig.explicit : explicit;
+const explicitLabel =
+  explicit === undefined ? astropodConfig.explicit : explicit;
 let cover_url = cover ? cover : astropodConfig.cover;
 ---
 
 <div class="card min-w-full bg-base-100 shadow-md md:pb-3 w-full">
   <div class="aspect-[3/1] mt-5 w-full">
     <div class="relative inline-block w-full">
-      <img src={astropodConfig.banner} alt={astropodConfig.name + " banner"} class="object-cover w-full aspect-[3/1]" />
+      <img
+        src={astropodConfig.banner}
+        alt={astropodConfig.name + " banner"}
+        class="object-cover w-full aspect-[3/1]"
+      />
       <div
         class="absolute top-0 left-0 items-center justify-center w-full h-full bg-gradient-to-t from-gray-900 to-50% to-transparent"
       >
         <div class="flex flex-col absolute bottom-0 left-32 md:left-52 px-3">
           <p class="mb-1 text-xs font-medium text-white">{subtitle}</p>
-          <h1 class="mb-3 text-lg md:text-4xl font-black text-white">{title}</h1>
+          <h1 class="mb-3 text-lg md:text-4xl font-black text-white">
+            {title}
+          </h1>
         </div>
       </div>
       {
@@ -39,8 +46,12 @@ let cover_url = cover ? cover : astropodConfig.cover;
   </div>
 
   <div class="flex md:-mt-12 px-4 md:pl-52">
-    <a href="/" class="btn btn-ghost m-1 justify-self-start px-2 sm:px-4"> Home</a>
-    <a href="/about" class="btn btn-ghost m-1 justify-self-end px-2 sm:px-4"> About</a>
+    <a href="/" class="btn btn-ghost m-1 justify-self-start px-2 sm:px-4">
+      Home</a
+    >
+    <a href="/about" class="btn btn-ghost m-1 justify-self-end px-2 sm:px-4">
+      About</a
+    >
 
     <div class="grow"></div>
 
@@ -60,7 +71,12 @@ let cover_url = cover ? cover : astropodConfig.cover;
       )
     }
 
-    <a href="/rss.xml" class="btn btn-ghost btn-square m-1 sm:w-12 w-10" title="RSS Feed">
+    <a
+      target="_blank"
+      href="/rss.xml"
+      class="btn btn-ghost btn-square m-1 sm:w-12 w-10"
+      title="RSS Feed"
+    >
       <RssIcon />
     </a>
   </div>

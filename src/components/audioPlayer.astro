@@ -1,6 +1,8 @@
 ---
 import DownloadIcon from "./icons/downloadIcon.astro";
 import PlayIcon from "./icons/playIcon.astro";
+import NextSongIcon from "./icons/nextSongIcon.astro";
+import PrevSongIcon from "./icons/prevSongIcon.astro";
 import PauseIcon from "./icons/pauseIcon.astro";
 import AudioIcon from "./icons/audioIcon.astro";
 import AudioMutedIcon from "./icons/audioMutedIcon.astro";
@@ -8,71 +10,82 @@ import AudioMutedIcon from "./icons/audioMutedIcon.astro";
 
 <div
   id="audio-player-container"
-  class="w-full z-20 bottom-0 fixed bg-base-100 px-5 h-16 items-center transition-opacity hidden opacity-0 duration-500"
+  class="w-full border-t-2 border-[#ffffff33] flex-col z-20 bottom-0 fixed bg-base-100 px-5 h-20 items-left transition-opacity hidden opacity-0 duration-500"
 >
-  <audio src="" preload="metadata"></audio>
-  <span
-    id="audio-loading"
-    class="loading loading-spinner loading-md min-w-[1.5rem] hidden"></span>
-  <label id="audio-control" class="swap hidden">
-    <input type="checkbox" id="play-icon" />
-    <div id="play-icon-svg" class="swap-off">
-      <PlayIcon />
-    </div>
-    <div id="pause-icon-svg" class="swap-on">
-      <PauseIcon />
-    </div>
-  </label>
-  <span id="current-time" class="ml-5 mr-2">0:00</span>/
-  <span id="duration" class="ml-2">0:00</span>
-  <input
-    id="seek-slider"
-    type="range"
-    min="0"
-    max="0"
-    value="0"
-    class="range range-xs mx-5"
-  />
-  <label class="ml-5 swap">
-    <input id="mute-icon" type="checkbox" />
-    <div class="swap-off">
-      <AudioIcon />
-    </div>
-    <div class="swap-on">
-      <AudioMutedIcon />
-    </div>
-  </label>
-  <div class="dropdown dropdown-top dropdown-end ml-5 h-6">
-    <button tabindex="0">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        class="icon icon-tabler icon-tabler-dots-vertical"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        stroke-width="2"
-        stroke="currentColor"
-        fill="none"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
-        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-        <path d="M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"></path>
-        <path d="M12 19m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"></path>
-        <path d="M12 5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"></path>
-      </svg>
+  <span id="audio-player-title" class="pt-2 text-white">Loading...</span>
+  <div
+    class="w-full flex-row bg-base-100 h-16 flex items-center transition-opacity"
+  >
+    <audio src="" preload="metadata"></audio>
+    <span
+      id="audio-loading"
+      class="loading loading-spinner loading-md min-w-[1.5rem] hidden"></span>
+    <button id="nextBtn" class="mr-5 scale-75">
+      <PrevSongIcon />
     </button>
-    <ul
-      tabindex="0"
-      class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
-    >
-      <li>
-        <a href="#" download id="audio-download-link">
-          <DownloadIcon />
-          Download</a
+    <label id="audio-control" class="swap hidden">
+      <input type="checkbox" id="play-icon" />
+      <div id="play-icon-svg" class="swap-off">
+        <PlayIcon />
+      </div>
+      <div id="pause-icon-svg" class="swap-on">
+        <PauseIcon />
+      </div>
+    </label>
+    <button id="prevBtn" class="mr-2 ml-5 scale-75">
+      <NextSongIcon />
+    </button>
+    <span id="current-time" class="ml-5 mr-2">0:00</span>/
+    <span id="duration" class="ml-2">0:00</span>
+    <input
+      id="seek-slider"
+      type="range"
+      min="0"
+      max="0"
+      value="0"
+      class="range range-xs mx-5"
+    />
+    <label class="ml-5 swap">
+      <input id="mute-icon" type="checkbox" />
+      <div class="swap-off">
+        <AudioIcon />
+      </div>
+      <div class="swap-on">
+        <AudioMutedIcon />
+      </div>
+    </label>
+    <div class="dropdown dropdown-top dropdown-end ml-5 h-6">
+      <button tabindex="0">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="icon icon-tabler icon-tabler-dots-vertical"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          stroke-width="2"
+          stroke="currentColor"
+          fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"
         >
-      </li>
-    </ul>
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+          <path d="M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"></path>
+          <path d="M12 19m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"></path>
+          <path d="M12 5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"></path>
+        </svg>
+      </button>
+      <ul
+        tabindex="0"
+        class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
+      >
+        <li>
+          <a href="#" download id="audio-download-link">
+            <DownloadIcon />
+            Download</a
+          >
+        </li>
+      </ul>
+    </div>
   </div>
 </div>
 
@@ -89,6 +102,22 @@ import AudioMutedIcon from "./icons/audioMutedIcon.astro";
   const durationContainer = document.getElementById("duration");
   const currentTimeContainer = document.getElementById("current-time");
   const seekSlider = document.getElementById("seek-slider");
+  const nextSongBtn = document.getElementById("nextBtn");
+  const prevSongBtn = document.getElementById("prevBtn");
+
+  nextSongBtn.addEventListener("click", () => {
+    const index = parseInt(currentBtn.id.split("-")[1]);
+    nextBtn =
+      Array.from(playButtons)[index - 1] ||
+      Array.from(playButtons)[playButtons.length - 1];
+    playAudio(nextBtn);
+  });
+
+  prevSongBtn.addEventListener("click", () => {
+    const index = parseInt(currentBtn.id.split("-")[1]);
+    nextBtn = Array.from(playButtons)[index + 1] || Array.from(playButtons)[0];
+    playAudio(nextBtn);
+  });
 
   const calculateTime = (secs) => {
     const hours = Math.floor(secs / 3600);
@@ -146,13 +175,27 @@ import AudioMutedIcon from "./icons/audioMutedIcon.astro";
 
   const playButtons = document.querySelectorAll(".card-pay-buttons");
   let nextBtn: HTMLElement;
+  let currentBtn: HTMLElement;
 
-  const playAudio = (url, btnId) => {
-    console.log("playing audio", btnId);
+  const playAudio = (btn) => {
+    console.log("playing audio", btn.id);
+    if (currentBtn) {
+      currentBtn.checked = false;
+    }
+    currentBtn = btn;
+    if (currentBtn) {
+      console.log("currentBtn", currentBtn);
+      currentBtn.checked = true;
+    }
 
-    const index = parseInt(btnId.split("-")[1]);
+    const index = parseInt(btn.id.split("-")[1]);
     nextBtn = Array.from(playButtons)[index + 1] || Array.from(playButtons)[0];
 
+    const audioTitleEl = document.getElementById(`audio-player-title`);
+
+    if (audioTitleEl) {
+      audioTitleEl.innerHTML = `<strong>Playing:</strong> ${btn.dataset.audioTitle}`;
+    }
     musicPlayer?.classList.remove("hidden");
     musicPlayer?.classList.add("flex");
     footer?.classList.add("pb-24");
@@ -161,23 +204,23 @@ import AudioMutedIcon from "./icons/audioMutedIcon.astro";
     audioControl?.classList.add("hidden");
     durationContainer.textContent = "0:00";
     currentTimeContainer.textContent = "0:00";
-    audio.src = url;
-    audioDownloadLink.href = url;
-    disableOthersPlayButtons(btnId, playButtons);
+    audio.src = btn.dataset.audioUrl;
+    audioDownloadLink.href = btn.dataset.audioUrl;
+    disableOthersPlayButtons(btn.id, playButtons);
     playIconContainer.checked = true;
     audio.play();
   };
 
   audio?.addEventListener("ended", () => {
     if (nextBtn) {
-      playAudio(nextBtn.dataset.audioUrl, nextBtn.id);
+      playAudio(nextBtn);
     }
   });
 
   playButtons.forEach(function (btn) {
     btn.addEventListener("click", () => {
       if (!audio.src.includes(btn.dataset.audioUrl)) {
-        playAudio(btn.dataset.audioUrl, btn.id);
+        playAudio(btn);
       } else {
         playIconContainer?.click();
       }
