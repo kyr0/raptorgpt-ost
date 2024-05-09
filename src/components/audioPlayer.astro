@@ -11,7 +11,9 @@ import AudioMutedIcon from "./icons/audioMutedIcon.astro";
   class="w-full z-20 bottom-0 fixed bg-base-100 px-5 h-16 items-center transition-opacity hidden opacity-0 duration-500"
 >
   <audio src="" preload="metadata"></audio>
-  <span id="audio-loading" class="loading loading-spinner loading-md min-w-[1.5rem] hidden"></span>
+  <span
+    id="audio-loading"
+    class="loading loading-spinner loading-md min-w-[1.5rem] hidden"></span>
   <label id="audio-control" class="swap hidden">
     <input type="checkbox" id="play-icon" />
     <div id="play-icon-svg" class="swap-off">
@@ -23,7 +25,14 @@ import AudioMutedIcon from "./icons/audioMutedIcon.astro";
   </label>
   <span id="current-time" class="ml-5 mr-2">0:00</span>/
   <span id="duration" class="ml-2">0:00</span>
-  <input id="seek-slider" type="range" min="0" max="0" value="0" class="range range-xs mx-5" />
+  <input
+    id="seek-slider"
+    type="range"
+    min="0"
+    max="0"
+    value="0"
+    class="range range-xs mx-5"
+  />
   <label class="ml-5 swap">
     <input id="mute-icon" type="checkbox" />
     <div class="swap-off">
@@ -53,7 +62,10 @@ import AudioMutedIcon from "./icons/audioMutedIcon.astro";
         <path d="M12 5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"></path>
       </svg>
     </button>
-    <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+    <ul
+      tabindex="0"
+      class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
+    >
       <li>
         <a href="#" download id="audio-download-link">
           <DownloadIcon />
@@ -85,7 +97,9 @@ import AudioMutedIcon from "./icons/audioMutedIcon.astro";
     const formattedMinutes = minutes < 10 ? `0${minutes}` : minutes;
     const formattedseconds = seconds < 10 ? `0${seconds}` : seconds;
 
-    return hours > 0 ? `${hours}:${formattedMinutes}:${formattedseconds}` : `${minutes}:${formattedseconds}`;
+    return hours > 0
+      ? `${hours}:${formattedMinutes}:${formattedseconds}`
+      : `${minutes}:${formattedseconds}`;
   };
 
   const displayDuration = () => {
@@ -131,23 +145,39 @@ import AudioMutedIcon from "./icons/audioMutedIcon.astro";
   });
 
   const playButtons = document.querySelectorAll(".card-pay-buttons");
+  let nextBtn: HTMLElement;
+
+  const playAudio = (url, btnId) => {
+    console.log("playing audio", btnId);
+
+    const index = parseInt(btnId.split("-")[1]);
+    nextBtn = Array.from(playButtons)[index + 1] || Array.from(playButtons)[0];
+
+    musicPlayer?.classList.remove("hidden");
+    musicPlayer?.classList.add("flex");
+    footer?.classList.add("pb-24");
+    setTimeout(() => musicPlayer?.classList.remove("opacity-0"), 100);
+    audioLoading?.classList.remove("hidden");
+    audioControl?.classList.add("hidden");
+    durationContainer.textContent = "0:00";
+    currentTimeContainer.textContent = "0:00";
+    audio.src = url;
+    audioDownloadLink.href = url;
+    disableOthersPlayButtons(btnId, playButtons);
+    playIconContainer.checked = true;
+    audio.play();
+  };
+
+  audio?.addEventListener("ended", () => {
+    if (nextBtn) {
+      playAudio(nextBtn.dataset.audioUrl, nextBtn.id);
+    }
+  });
 
   playButtons.forEach(function (btn) {
     btn.addEventListener("click", () => {
       if (!audio.src.includes(btn.dataset.audioUrl)) {
-        musicPlayer?.classList.remove("hidden");
-        musicPlayer?.classList.add("flex");
-        footer?.classList.add("pb-24");
-        setTimeout(() => musicPlayer?.classList.remove("opacity-0"), 100);
-        audioLoading?.classList.remove("hidden");
-        audioControl?.classList.add("hidden");
-        durationContainer.textContent = "0:00";
-        currentTimeContainer.textContent = "0:00";
-        audio.src = btn.dataset.audioUrl;
-        audioDownloadLink.href = btn.dataset.audioUrl;
-        disableOthersPlayButtons(btn.id, playButtons);
-        playIconContainer.checked = true;
-        audio.play();
+        playAudio(btn.dataset.audioUrl, btn.id);
       } else {
         playIconContainer?.click();
       }

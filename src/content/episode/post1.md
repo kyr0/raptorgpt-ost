@@ -10,4 +10,4 @@ episode: 1
 season: 1
 episodeType: full
 ---
-So grand and dramatic, you will feel like you are about to liberate the entire galaxy rather than just shoot at pixels.
+So grand and dramatic, you'll feel like you're about to liberate the entire galaxy rather than just shoot at pixels.
