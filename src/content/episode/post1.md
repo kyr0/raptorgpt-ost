@@ -1,5 +1,5 @@
 ---
-title: RaptorGPT - Main Theme
+title: RaptorGPT - Main Theme - Galactic Overture
 audioUrl: https://archive.org/download/2-conquer-of-the-universe-mastered/2_Conquer_of_the_Universe_mastered.mp3
 pubDate: May 5 2024
 duration: 2:32
@@ -10,4 +10,4 @@ episode: 1
 season: 1
 episodeType: full
 ---
-This is the main theme of RaptorGPT - Call of the Hallucinations. Generated using Suno.ai in April 2024.
+So grand and dramatic, you will feel like you are about to liberate the entire galaxy rather than just shoot at pixels.

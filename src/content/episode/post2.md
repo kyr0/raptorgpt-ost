@@ -1,13 +1,13 @@
 ---
-title: RaptorGPT - A Space Symphony
-audioUrl: https://archive.org/download/raptorgpt-a-space-symphony/2_A_Space_Symphony.mp3
-pubDate: May 6 2024
-duration: 1:56
-size: 4.1
-cover: "/covers/main_theme_cover.png"
+title: RaptorGPT - Voyager's Echo or That's Life
+audioUrl: https://archive.org/download/raptorgpt-galactic-noise-dance/4_Galactic_Noise_Dance.mp3
+pubDate: May 9 2024
+duration: 2:30
+size: 5.5
+cover: "/covers/song_4.png"
 explicit: false
 episode: 2
 season: 1
 episodeType: full
 ---
-Song of level one of the AI generated game: RaptorGPT - Call of the Hallucinations. Generated using Suno.ai in April 2024.
+Echoes the loneliness of space with a haunting melody that makes you feel both awe and a slight existential crisis. It's like floating in the vast unknown, pondering the meaning of life until its game over.
